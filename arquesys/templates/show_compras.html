@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compras Detalhes </title>
+    <script src="../static/show_compras.js"></script>
+
+    <link rel="stylesheet" href="../static/forms.css">
+    <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel="Stylesheet" type="text/css" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    {% for item in compras %}
+    <form class="boxcompras" action="/inicial/compras/{{item.id}}" method="post">
+        {% endfor %}
+        <div>
+            <label> Fornecedor </label>
+            {% for item in compras %}
+            <input type="text" id="fornecedor" value="{{item.nome_forne}}" readonly>
+            {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label> Descrição </label>
+            {% for item in compras %}
+            <input type="text" class="valor" name="valor" value="{{item.descricao}}" readonly>
+            {% endfor %}
+        </div>
+        <a class="btnSecondary" href="/inicial/lista/compras"> Ok </a>
+
+    </form>
+</body>
+
+</html>
